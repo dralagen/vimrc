@@ -198,6 +198,15 @@ fun s:GetSnippet(word, scope)
 	return [word, snippet]
 endf
 
+fun! GetSnipsInCurrentScope()
+	let snips = {}
+	for scope in [bufnr('%')] + split(&ft, '\.') + ['_']
+		call extend(snips, get(s:snippets, scope, {}), 'keep')
+		call extend(snips, get(s:multi_snips, scope, {}), 'keep')
+	endfor
+    return snips
+endf
+
 fun s:ChooseSnippet(scope, trigger)
 	let snippet = []
 	let i = 1
