@@ -13,7 +13,7 @@ set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
 "set background=dark
 set number
-set smartindent
+"set smartindent
 
 set backupdir=/tmp
 set directory=/tmp
@@ -67,7 +67,7 @@ if has("autocmd")
 
 else
 
-  set autoindent		" always set autoindenting on
+  "set autoindent		" always set autoindenting on
 
 endif " has("autocmd")
 
@@ -84,3 +84,5 @@ set cindent
 set cinoptions=(0,u0,U0
 
 autocmd BufWritePre * :%s/\s\+$//e
+
+colorscheme desert
