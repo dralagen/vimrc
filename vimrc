@@ -93,3 +93,14 @@ map <F8> :make -j2<cr>
 map <F9> :make mrproper && make -j2<cr>
 
 colorscheme desert
+
+" Wildmenu
+if has("wildmenu")
+	set wildignore+=*.a,*.o
+	set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png
+	set wildignore+=.DS_Store,.git,.hg,.svn
+	set wildignore+=*~,*.swp,*.tmp
+	set wildmenu
+	set wildmode=longest,list
+endif
+
