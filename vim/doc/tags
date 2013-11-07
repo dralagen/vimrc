@@ -50,6 +50,7 @@
 :AcpLock	acp.txt	/*:AcpLock*
 :AcpUnlock	acp.txt	/*:AcpUnlock*
 :AlignMapsClean	Align.txt	/*:AlignMapsClean*
+:ErrorAtCursor	errormarker.txt	/*:ErrorAtCursor*
 :NERDTree	NERD_tree.txt	/*:NERDTree*
 :NERDTreeClose	NERD_tree.txt	/*:NERDTreeClose*
 :NERDTreeFind	NERD_tree.txt	/*:NERDTreeFind*
@@ -213,6 +214,7 @@ YRReplace-example	yankring.txt	/*YRReplace-example*
 YRSearch-example	yankring.txt	/*YRSearch-example*
 YRShow-example	yankring.txt	/*YRShow-example*
 YRYankRange-example	yankring.txt	/*YRYankRange-example*
+\cc	errormarker.txt	/*\\cc*
 acp	acp.txt	/*acp*
 acp-about	acp.txt	/*acp-about*
 acp-author	acp.txt	/*acp-author*
@@ -350,6 +352,19 @@ clang_complete-todo	clang_complete.txt	/*clang_complete-todo*
 clang_complete-use_library	clang_complete.txt	/*clang_complete-use_library*
 clang_complete-user_options	clang_complete.txt	/*clang_complete-user_options*
 clang_complete.txt	clang_complete.txt	/*clang_complete.txt*
+errormarker	errormarker.txt	/*errormarker*
+errormarker-changelog	errormarker.txt	/*errormarker-changelog*
+errormarker-credits	errormarker.txt	/*errormarker-credits*
+errormarker-customization	errormarker.txt	/*errormarker-customization*
+errormarker-usage	errormarker.txt	/*errormarker-usage*
+errormarker_disablemappings	errormarker.txt	/*errormarker_disablemappings*
+errormarker_errorgroup	errormarker.txt	/*errormarker_errorgroup*
+errormarker_erroricon	errormarker.txt	/*errormarker_erroricon*
+errormarker_errortext	errormarker.txt	/*errormarker_errortext*
+errormarker_warninggroup	errormarker.txt	/*errormarker_warninggroup*
+errormarker_warningicon	errormarker.txt	/*errormarker_warningicon*
+errormarker_warningtext	errormarker.txt	/*errormarker_warningtext*
+errormarker_warningtypes	errormarker.txt	/*errormarker_warningtypes*
 g:AlignSkip	Align.txt	/*g:AlignSkip*
 g:UltiSnipsEditSplit	UltiSnips.txt	/*g:UltiSnipsEditSplit*
 g:UltiSnipsSnippetsDir	UltiSnips.txt	/*g:UltiSnipsSnippetsDir*
