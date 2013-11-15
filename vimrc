@@ -21,7 +21,7 @@ set directory=/tmp
 " Don't use Ex mode, use Q for formatting
 map Q gq
 
-map <F12>  :let @/=""<CR>
+nnoremap <F12>  :let @/=""<CR>
 
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
@@ -74,10 +74,11 @@ if has("autocmd")
 
 
 	autocmd BufNewFile,BufRead *.tex set makeprg=pdflatex
+	autocmd FileType tex source ~/.vim/auctex.vim
 
 else
 
-	"set autoindent		" always set autoindenting on
+	set autoindent		" always set autoindenting on
 
 endif " has("autocmd")
 
@@ -119,4 +120,43 @@ imap <C-w>j <C-o><C-w>j
 imap <C-w>k <C-o><C-w>k
 imap <C-w>l <C-o><C-w>l
 imap <C-w>h <C-o><C-w>h
+let Tlist_GainFocus_On_ToggleOpen = 1
+
+let Tlist_Close_On_Select = 1
+nnoremap <C-l> :TlistToggle<CR>
+
+map <PageDown> :set scroll=0<CR>:set scroll^=2<CR>:set scroll-=1<CR><C-D>:set scroll=0<CR>
+map <PageUp> :set scroll=0<CR>:set scroll^=2<CR>:set scroll-=1<CR><C-U>:set scroll=0<CR>
+nnoremap <silent> <PageUp> <C-U><C-U>
+vnoremap <silent> <PageUp> <C-U><C-U>
+inoremap <silent> <PageUp> <C-\><C-O><C-U><C-\><C-O><C-U>
+nnoremap <silent> <PageDown> <C-D><C-D>
+vnoremap <silent> <PageDown> <C-D><C-D>
+inoremap <silent> <PageDown> <C-\><C-O><C-D><C-\><C-O><C-D>
+
+map <LocalLeader>ri gg=G<CR>
+
+
+" TABS "
+" ---------------------------------
+
+" CREATE A NEW TAB
+map <LocalLeader>tc :tabnew %<CR>
+map <C-W><C-j> :tabnew %<CR>
+
+" LAST TAB
+map <LocalLeader>t<Space> :tablast<CR>
+"map <C-W><C-j> :tablast<CR>
+
+" CLOSE A TAB
+map <LocalLeader>tk :tabclose<CR>
+map <C-W><C-k> :tabclose<CR>
+
+" NEXT TAB
+map <LocalLeader>tn :tabnext<CR>
+map <C-W><C-l> :tabnext<CR>
+
+" PREVIOUS TAB
+map <LocalLeader>tp :tabprev<CR>
+map <C-W><C-h> :tabprev<CR>
 
