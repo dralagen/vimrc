@@ -24,7 +24,7 @@ function! s:ClangCompleteInit()
   endif
 
   if !exists('g:clang_auto_select')
-    let g:clang_auto_select = 0
+    let g:clang_auto_select = 1
   endif
 
   if !exists('g:clang_complete_auto')
@@ -32,7 +32,7 @@ function! s:ClangCompleteInit()
   endif
 
   if !exists('g:clang_close_preview')
-    let g:clang_close_preview = 0
+    let g:clang_close_preview = 1
   endif
 
   if !exists('g:clang_complete_copen')
@@ -48,7 +48,7 @@ function! s:ClangCompleteInit()
   endif
 
   if !exists('g:clang_snippets')
-    let g:clang_snippets = 0
+    let g:clang_snippets = 1
   endif
 
   if !exists('g:clang_snippets_engine')
@@ -82,11 +82,11 @@ function! s:ClangCompleteInit()
   endif
 
   if !exists('g:clang_complete_macros')
-    let g:clang_complete_macros = 0
+    let g:clang_complete_macros = 1
   endif
 
   if !exists('g:clang_complete_patterns')
-    let g:clang_complete_patterns = 0
+    let g:clang_complete_patterns = 1
   endif
 
   if !exists('g:clang_debug')

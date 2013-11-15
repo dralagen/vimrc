@@ -48,6 +48,10 @@ if has("autocmd")
 	" Also load indent files, to automatically do language-dependent indenting.
 	filetype plugin indent on
 
+	map <F10> gg=G
+
+ 	set grepprg=grep\ -nH\ $*
+	let g:tex_flavor = "latex"
 
 	" Put these in an autocmd group, so that we can delete them easily.
 	augroup vimrcEx
@@ -67,6 +71,9 @@ if has("autocmd")
 					\ endif
 
 	augroup END
+
+
+	autocmd BufNewFile,BufRead *.tex set makeprg=pdflatex
 
 else
 
@@ -89,8 +96,8 @@ set cinkeys=0{,0},0),:,0#,!^F,o,O,e,!<Tab>
 
 autocmd BufWritePre * :%s/\s\+$//e
 
-map <F8> :make -j2<cr>
-map <F9> :make mrproper && make -j2<cr>
+nnoremap <F8> :make -j2<cr>
+nnoremap <F9> :make mrproper && make -j2<cr>
 
 colorscheme desert
 
@@ -103,4 +110,13 @@ if has("wildmenu")
 	set wildmenu
 	set wildmode=longest,list
 endif
+
+" let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplModSelTarget = 1
+let g:miniBufExplMapWindowNavArrows = 1
+
+imap <C-w>j <C-o><C-w>j
+imap <C-w>k <C-o><C-w>k
+imap <C-w>l <C-o><C-w>l
+imap <C-w>h <C-o><C-w>h
 
