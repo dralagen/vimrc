@@ -31,7 +31,7 @@ if v:version > 701 || ( v:version == 701 && has("patch205") )
 endif
 
 if !exists('g:yankring_history_dir')
-    let g:yankring_history_dir = expand('$HOME')
+    let g:yankring_history_dir = '/tmp/'
 else
     " let g:yankring_history_dir = expand(g:yankring_history_dir)
     for dir in split(g:yankring_history_dir, ",")
@@ -39,11 +39,11 @@ else
             let g:yankring_history_dir = expand(dir)
             break
         endif
-    endfor   
+    endfor
 endif
 
 if !exists('g:yankring_history_file')
-    let g:yankring_history_file = 'yankring_history'
+    let g:yankring_history_file = expand('yankring_hisory_$USER')
 endif
 
 " Allow the user to override the # of yanks/deletes recorded
@@ -361,7 +361,7 @@ endfunction
 " Enables or disables the yankring
 function! s:YRShow(...)
     " Prevent recursion
-    if exists('s:yankring_showing') && s:yankring_showing == 1 
+    if exists('s:yankring_showing') && s:yankring_showing == 1
         " call s:YRWarningMsg('YR: YRShow aborting for recursion')
         return
     endif
@@ -934,7 +934,7 @@ endfunction
 function! YRRecord3(...)
     let register = '"'
 
-    if a:0 > 0 && a:1 != '' 
+    if a:0 > 0 && a:1 != ''
         let register = a:1
     else
         " v:register can be blank in some (unknown) cases
@@ -1315,17 +1315,17 @@ function! s:YRYankRange(do_delete_selection, ...) range
 
     if a:do_delete_selection == 1
         " Save register 0
-        " Register 0 should only be changed by yank operations 
-        " if we are deleting text, this could inadvertently 
+        " Register 0 should only be changed by yank operations
+        " if we are deleting text, this could inadvertently
         " update this register.
         let zero_register = [0, getreg(0), getregtype('0')]
     endif
 
     if cmd_mode == 'v'
         " We are yanking either an entire line, or a range
-        " We want to yank the text first (even in a delete) since 
-        " the rules around which registers get updated are a bit 
-        " complicated.  For deletes, it depends on how large 
+        " We want to yank the text first (even in a delete) since
+        " the rules around which registers get updated are a bit
+        " complicated.  For deletes, it depends on how large
         " the delete is for which registers get updated.
         exec "normal! gv".
                     \ (user_register==default_buffer?'':'"'.user_register).
@@ -1475,7 +1475,7 @@ function! s:YRPaste(replace_last_paste_selection, nextvalue, direction, ...)
         " If the user hits next or previous we want the
         " next item pasted to be the top of the yankring.
         let s:yr_last_paste_idx = 1
-    
+
         let s:yr_paste_dir     = a:direction
         let s:yr_prev_vis_mode = ((cmd_mode=='n') ? 0 : 1)
         return
@@ -1661,7 +1661,7 @@ function! s:YRMapsMacro(bang, ...)
     " after the action of the replay is completed.
     call s:YRMapsDelete('remove_only_zap_keys')
 
-    " Greg Sexton indicated the use of nr2char() removes 
+    " Greg Sexton indicated the use of nr2char() removes
     " a "Press ENTER ..." prompt when executing a macro.
     " let zapto = nr2char(getchar())
     " let zapto = (a:0==0 ? "" : s:YRGetChar())
@@ -2029,7 +2029,7 @@ function! s:YRHistoryDelete()
     let s:yr_count        = 0
 
     if g:yankring_persist != 1
-        return 
+        return
     endif
     let yr_filename       = s:yr_history_file_{s:yr_history_version}
 
@@ -2094,7 +2094,7 @@ function! s:YRHistorySave()
     endif
 
     if g:yankring_persist != 1
-        return 
+        return
     endif
 
     let yr_filename     = s:yr_history_file_{s:yr_history_version}
