@@ -48,11 +48,6 @@ if has("autocmd")
 	" Also load indent files, to automatically do language-dependent indenting.
 	filetype plugin indent on
 
-	map <F10> gg=G
-
- 	set grepprg=grep\ -nH\ $*
-	let g:tex_flavor = "latex"
-
 	" Put these in an autocmd group, so that we can delete them easily.
 	augroup vimrcEx
 		au!
@@ -97,8 +92,8 @@ set cinkeys=0{,0},0),:,0#,!^F,o,O,e,!<Tab>
 
 autocmd BufWritePre * :%s/\s\+$//e
 
-nnoremap <F8> :make -j2<cr>
-nnoremap <F9> :make mrproper && make -j2<cr>
+nnoremap <F8> :make -j$NBCORECPU<cr>
+nnoremap <F9> :make mrproper && make -j$NBCORECPU<cr>
 
 colorscheme desert
 
@@ -122,7 +117,6 @@ imap <C-w>l <C-o><C-w>l
 imap <C-w>h <C-o><C-w>h
 
 let Tlist_GainFocus_On_ToggleOpen = 1
-
 let Tlist_Close_On_Select = 1
 nnoremap <C-l> :TlistToggle<CR>
 
@@ -137,6 +131,8 @@ inoremap <silent> <PageDown> <C-\><C-O><C-D><C-\><C-O><C-D>
 
 map <LocalLeader>ri gg=G<CR>
 
+
+let g:DoxygenToolkit_authorName 	= "Dralagen"
 
 " TABS "
 " ---------------------------------
