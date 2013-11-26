@@ -67,8 +67,6 @@ if has("autocmd")
 
 	augroup END
 
-
-	autocmd BufNewFile,BufRead *.tex set makeprg=pdflatex
 	autocmd FileType tex source ~/.vim/auctex.vim
 
 else
@@ -90,7 +88,12 @@ set cindent
 set cinoptions=(0,u0,U0
 set cinkeys=0{,0},0),:,0#,!^F,o,O,e,!<Tab>
 
-autocmd BufWritePre * :%s/\s\+$//e
+" delete space end line
+autocmd BufWritePre * :%s/\s*$//ie|norm!``
+" delete space begin file
+autocmd BufWritePre * :%s/\%^\n*//ie|norm!``
+" just one end line
+autocmd BufWritePre * :%s/\n*\%$/\r/ie|norm!``
 
 nnoremap <F8> :make -j$NBCORECPU<cr>
 nnoremap <F9> :make mrproper && make -j$NBCORECPU<cr>
@@ -106,10 +109,6 @@ if has("wildmenu")
 	set wildmenu
 	set wildmode=longest,list
 endif
-
-" let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplModSelTarget = 1
-let g:miniBufExplMapWindowNavArrows = 1
 
 imap <C-w>j <C-o><C-w>j
 imap <C-w>k <C-o><C-w>k
@@ -129,8 +128,14 @@ nnoremap <silent> <PageDown> <C-D><C-D>
 vnoremap <silent> <PageDown> <C-D><C-D>
 inoremap <silent> <PageDown> <C-\><C-O><C-D><C-\><C-O><C-D>
 
-map <LocalLeader>ri gg=G<CR>
+" reindent all file
+nmap <Leader>ri gg=G``
+" max double \n
+nmap <Leader>dl :%s/\_^\n\{2,\}/\r/ie<CR>
+nmap <Leader>uf :call g:ClangUpdateQuickFix()<CR>
+nmap <Leader>tr :NERDTreeToggle<CR>
 
+let g:DoxygenToolkit_authorName 	= "Dralagen"
 
 let g:DoxygenToolkit_authorName 	= "Dralagen"
 
@@ -138,9 +143,9 @@ let g:DoxygenToolkit_authorName 	= "Dralagen"
 " ---------------------------------
 
 " CREATE A NEW TAB
-map <LocalLeader>tc :tabnew %<CR>
-nnoremap <C-W><C-k> :tabnew %<CR>
-inoremap <C-W><C-k> <c-o>:tabnew %<CR>
+map <LocalLeader>tc :tabnew<CR>
+nnoremap <C-W><C-k> :tabnew<CR>
+inoremap <C-W><C-k> <c-o>:tabnew<CR>
 
 " LAST TAB
 map <LocalLeader>t<Space> :tablast<CR>
