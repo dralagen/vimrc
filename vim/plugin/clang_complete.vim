@@ -60,7 +60,7 @@ function! s:ClangCompleteInit()
   endif
 
   if !exists('g:clang_user_options')
-    let g:clang_user_options = ''
+    let g:clang_user_options = '-std=c++11'
   endif
 
   if !exists('g:clang_conceal_snippets')
