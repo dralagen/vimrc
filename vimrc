@@ -137,8 +137,6 @@ nmap <Leader>tr :NERDTreeToggle<CR>
 
 let g:DoxygenToolkit_authorName 	= "Dralagen"
 
-let g:DoxygenToolkit_authorName 	= "Dralagen"
-
 " TABS "
 " ---------------------------------
 
