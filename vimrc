@@ -89,11 +89,11 @@ set cinoptions=(0,u0,U0
 set cinkeys=0{,0},0),:,0#,!^F,o,O,e,!<Tab>
 
 " delete space end line
-autocmd BufWritePre * :%s/\s*$//ie|norm!``
+autocmd BufWritePre * silent! %s/\s*$//i|norm!``
 " delete space begin file
-autocmd BufWritePre * :%s/\%^\n*//ie|norm!``
+autocmd BufWritePre * silent! %s/\%^\n*//i|norm!``
 " just one end line
-autocmd BufWritePre * :%s/\n*\%$/\r/ie|norm!``
+autocmd BufWritePre * silent! %s/\n*\%$/\r/i|norm!``
 
 nnoremap <F8> :make -j$NBCORECPU<cr>
 nnoremap <F9> :make mrproper && make -j$NBCORECPU<cr>
