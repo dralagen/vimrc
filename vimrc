@@ -83,7 +83,7 @@ if !exists(":DiffOrig")
 				\ | wincmd p | diffthis
 endif
 
-set noet sts=0 sw=2 ts=2
+set et sts=0 sw=4 ts=4
 set cindent
 set cinoptions=(0,u0,U0
 set cinkeys=0{,0},0),:,0#,!^F,o,O,e,!<Tab>
