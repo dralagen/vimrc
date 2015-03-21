@@ -130,6 +130,7 @@ inoremap <silent> <PageDown> <C-\><C-O><C-D><C-\><C-O><C-D>
 
 " reindent all file
 nmap <Leader>ri gg=G``
+vmap <Leader>ri =
 " max double \n
 nmap <Leader>dl :%s/\_^\n\{2,\}/\r/ie<CR>
 nmap <Leader>uf :call g:ClangUpdateQuickFix()<CR>

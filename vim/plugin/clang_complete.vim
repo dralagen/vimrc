@@ -104,6 +104,8 @@ function! s:ClangCompleteInit()
   call LoadUserOptions()
 
   inoremap <expr> <buffer> <C-X><C-U> <SID>LaunchCompletion()
+  inoremap <expr> <buffer> <C-Space> <SID>LaunchCompletion()
+  imap <C-@> <C-Space>
   inoremap <expr> <buffer> . <SID>CompleteDot()
   inoremap <expr> <buffer> > <SID>CompleteArrow()
   inoremap <expr> <buffer> : <SID>CompleteColon()
@@ -742,3 +744,4 @@ function! g:ClangSetSnippetEngine(engine_name)
 endfunction
 
 " vim: set ts=2 sts=2 sw=2 expandtab :
+
