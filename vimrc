@@ -83,6 +83,12 @@ if !exists(":DiffOrig")
 				\ | wincmd p | diffthis
 endif
 
+" et : expendtab : use espace
+" noet : use tab
+"
+" sts : softtabstop
+" sw : shiftwidth
+" ts : tabstop
 set et sts=0 sw=4 ts=4
 set cindent
 set cinoptions=(0,u0,U0
